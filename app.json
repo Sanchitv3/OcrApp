@@ -32,7 +32,8 @@
         "READ_EXTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE",
         "READ_MEDIA_IMAGES"
-      ]
+      ],
+      "package": "com.sanchitv3.starterkitexpo"
     },
     "web": {
       "bundler": "metro",
