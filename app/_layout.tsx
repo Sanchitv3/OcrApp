@@ -10,6 +10,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -42,9 +43,40 @@ function RootLayoutNav() {
   return (
     <GluestackUIProvider mode={colorMode}>
       <ThemeProvider value={colorMode === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+      <StatusBar style="light" backgroundColor="#1f2937" />
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#1f2937',
+          },
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
+        <Stack.Screen 
+          name="index" 
+          options={{ 
+            title: 'Number Scanner',
+            headerShown: true,
+          }} 
+        />
+        <Stack.Screen 
+          name="history" 
+          options={{ 
+            title: 'Scan History',
+            headerShown: true,
+          }} 
+        />
+        <Stack.Screen 
+          name="detail/[scanId]" 
+          options={{ 
+            title: 'Scan Details',
+            headerShown: true,
+          }} 
+        />
+      </Stack>
       </ThemeProvider>
     </GluestackUIProvider>
   );
